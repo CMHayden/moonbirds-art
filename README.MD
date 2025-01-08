@@ -22,7 +22,7 @@ To install and set up the project, run the following commands:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/moonbirds-art.git
+git clone https://github.com/CMHayden/moonbirds-art.git
 
 # Navigate to the project directory
 cd moonbirds-art
