@@ -1,8 +1,9 @@
 import { assembleMoonbird } from "./assemble";
 import { generateRandomMoonbird } from "./randomizer";
+import { getMoonbirdConfigById } from "./metadata";
 
 // Export the key functionalities
-export { assembleMoonbird, generateRandomMoonbird };
+export { assembleMoonbird, generateRandomMoonbird, getMoonbirdConfigById }
 
 export const generateAndSaveRandomMoonbird = async (filePath: string) => {
   const randomMoonbird = generateRandomMoonbird();
