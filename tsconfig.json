@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "module": "esnext",
+    "target": "esnext",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": "src",
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["src/**/*.ts", "bin/**/*.ts"],
+  "include": ["src", "tests"],
   "exclude": ["node_modules", "dist"]
 }
