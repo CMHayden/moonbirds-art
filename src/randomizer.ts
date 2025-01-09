@@ -1,4 +1,4 @@
-import { MoonbirdConfig } from './assemble';
+import { MoonbirdConfig } from './assemble.js';
 
 const layerOptions = {
     backgrounds: ['Gray', 'Lilac','Light Red','Light Green','Light Yellow','Jade', 'Cosmic', 'Enlightened'],

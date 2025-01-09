@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "strict": true,
-    "baseUrl": ".",
-    "outDir": "dist",
-    "rootDir": "src",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "module": "esnext", // Use ES modules for import.meta support
+    "target": "es2020", // ES2020 or higher for modern features
+    "esModuleInterop": true, // Enable interop with CommonJS
+    "allowSyntheticDefaultImports": true, // Allow default imports for non-ES modules
+    "moduleResolution": "node", // Node.js-style module resolution
+    "strict": true, // Strict type-checking
+    "baseUrl": ".", // Base directory for relative imports
+    "outDir": "dist", // Directory to output compiled files
+    "rootDir": "src", // Root directory for source files
+    "resolveJsonModule": true, // Allow importing JSON modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "typeRoots": ["./node_modules/@types", "./src/types"] // Include custom types
   },
-  "include": ["src", "tests"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src", "tests"], // Include source and test directories
+  "exclude": ["node_modules", "dist"] // Exclude built files and node_modules
 }

@@ -1,5 +1,6 @@
-import sharp from "sharp";
+import { fileURLToPath } from "url";
 import path from "path";
+import sharp from "sharp";
 
 // Define the headwearWithoutEars array
 const headwearWithoutEars = [
@@ -72,4 +73,21 @@ export const assembleMoonbird = async (
 
   // Return the composed image buffer
   return sharp(layers[0]).composite(compositeLayers.slice(1)).toBuffer();
+};
+
+export const generateBatchMoonbirds = async (configs: MoonbirdConfig[]) => {
+  const results = [];
+
+  for (const config of configs) {
+    try {
+      const imageBuffer = await assembleMoonbird(config);
+      const base64Image = imageBuffer.toString("base64");
+      results.push({ config, base64Image });
+    } catch (error) {
+      const e = error as Error;
+      console.error(`Error generating Moonbird for config ${JSON.stringify(config)}: ${e.message}`);
+    }
+  }
+
+  return results;
 };
