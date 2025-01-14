@@ -1,0 +1,38 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main # Trigger the action only when you push to the main branch
+    tags:
+      - 'v*' # Optionally trigger the action on version tags, e.g., v1.0.0
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js (ensure to match the version your package needs)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Update this to the version your package uses
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the package (this should match your build script in package.json)
+      - name: Build the package
+        run: npm run build
+
+      # Step 5: Publish the package to npm
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # Use npm token stored in GitHub secrets
+        run: npm publish --access public # Optional: use --access restricted for private packages
+
