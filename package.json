@@ -1,6 +1,6 @@
 {
   "name": "moonbirds-art",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package for generating Moonbird NFT art.",
   "main": "dist/index.js",
   "files": [
