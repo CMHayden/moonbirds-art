@@ -12,7 +12,6 @@ This project provides a set of tools and utilities to work with Moonbirds NFTs, 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -42,6 +41,28 @@ npm install --save-dev typescript ts-node @types/node
 
 This section explains how to use the different features of the package.
 
+### Peer Dependencies
+
+This package requires `sharp` to be installed in the consuming project. Run:
+
+```bash
+npm install sharp
+```
+
+Due to an issue with sharp and the client, adding it as a peer dependency was a necesity, along with a small addition to your nextconfig.ts if using next.js:
+
+```ts
+const nextConfig: NextConfig = {
+  webpack: (config) => {
+    config.externals = config.externals || [];
+    config.externals.push("sharp");
+    return config;
+  },
+};
+
+module.exports = nextConfig;
+```
+
 ### Example: Generate a Random Moonbird
 
 ```typescript
@@ -66,43 +87,6 @@ try {
 }
 ```
 
-## Testing
-
-To run the tests for this project, you can use Jest. The tests cover the key features of the package, including randomization and metadata retrieval.
-
-1. Install Jest and related dependencies (if you haven't already):
-
-```bash
-npm install --save-dev jest ts-jest @types/jest
-```
-
-2. Run the tests:
-
-```bash
-npm run test
-```
-
-### Run Jest with Coverage:
-
-```bash
-npm run test:coverage
-```
-
-### Sample Test
-
-```typescript
-import { getMoonbirdConfigById } from "../src/metadata";
-
-describe("getMoonbirdConfigById", () => {
-  it("should throw an error for an invalid ID", async () => {
-    const invalidId = 99999;
-    await expect(getMoonbirdConfigById(invalidId)).rejects.toThrow(
-      "Moonbird ID not found"
-    );
-  });
-});
-```
-
 ## Contributing
 
 We welcome contributions! To contribute, please fork the repository and submit a pull request. Here's how:
@@ -112,8 +96,7 @@ We welcome contributions! To contribute, please fork the repository and submit a
 3. Commit your changes (git commit -am 'Add feature')
 4. Push to the branch (git push origin feature-name)
 5. Open a pull request
-6. Please make sure to write tests for your changes and ensure they pass before submitting a pull request.
-7. Let me know to take a look on the Moonbirds discord, or on twitter @igottheherb
+6. Let me know to take a look on the Moonbirds discord, or on twitter @igottheherb
 
 ## License
 
