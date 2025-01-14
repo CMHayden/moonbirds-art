@@ -1,4 +1,4 @@
-import metadata from "../assets/metadata.json"; 
+import metadata from "./assets/metadata.json"; 
 import { MoonbirdConfig } from "./assemble";
 import { getAvailableAssets } from "./assets";
 

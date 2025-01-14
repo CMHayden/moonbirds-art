@@ -50,7 +50,7 @@ export interface MoonbirdConfig {
 export const assembleMoonbird = async (
   config: MoonbirdConfig
 ): Promise<Buffer> => {
-  const basePath = path.join(__dirname, "../assets");
+  const basePath = path.resolve(process.cwd(), "node_modules/moonbirds-art/dist/assets");
 
   // Conditional logic for body selection based on headwear
   const bodyImage = headwearWithoutEars.includes(config.headwear)

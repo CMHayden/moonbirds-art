@@ -11,8 +11,8 @@
     "rootDir": "src", // Root directory for source files
     "resolveJsonModule": true, // Allow importing JSON modules
     "skipLibCheck": true, // Skip type checking of declaration files
-    "typeRoots": ["./node_modules/@types", "./src/types"] // Include custom types
+    "typeRoots": ["./node_modules/@types", "./src/types"], // Include custom types
   },
-  "include": ["src", "tests"], // Include source and test directories
-  "exclude": ["node_modules", "dist"] // Exclude built files and node_modules
+  "include": ["src", "src/types"], // Include source and test directories
+  "exclude": ["node_modules"] // Exclude built files and node_modules
 }

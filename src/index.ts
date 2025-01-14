@@ -11,7 +11,7 @@ export const generateAndSaveRandomMoonbirdBase64 = async () => {
   const imageBuffer = await assembleMoonbird(randomMoonbird);
 
   console.log(`Random Moonbird image returned as base64.`);
-  return imageBuffer.toString("base64");
+  return `data:image/png;base64,${imageBuffer.toString("base64")}`;
 };
 
 export const generateAndSaveMoonbirdByIDBase64 = async (id: number) => {
@@ -38,7 +38,7 @@ export const generateAndSaveMoonbirdByIDBase64 = async (id: number) => {
     const imageBuffer = await assembleMoonbird(completeMoonbirdConfig);
 
     console.log(`Moonbird with ID ${id} image returned as base64.`);
-    return imageBuffer.toString("base64");
+    return `data:image/png;base64,${imageBuffer.toString("base64")}`;
   } catch (error) {
     const e = error as Error;
     console.error(`Error generating Moonbird: ${e.message}`);
